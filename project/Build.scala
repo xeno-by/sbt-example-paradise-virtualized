@@ -6,9 +6,10 @@ object BuildSettings {
     organization := "org.scala-lang.macroparadise",
     version := "1.0.0",
     scalacOptions ++= Seq(),
-    scalaVersion := "2.10.2",
+    scalaOrganization := "org.scala-lang.virtualized",
+    scalaVersion := "2.10.2-RC1",
     resolvers += Resolver.sonatypeRepo("snapshots"),
-    addCompilerPlugin("org.scala-lang.plugins" % "macro-paradise_2.10.2" % "2.0.0-SNAPSHOT")
+    addCompilerPlugin("org.scala-lang.virtualized.plugins" % "macro-paradise_2.10.2-RC1" % "2.0.0-SNAPSHOT")
   )
 }
 
@@ -27,7 +28,7 @@ object MyBuild extends Build {
     "macros",
     file("macros"),
     settings = buildSettings ++ Seq(
-      libraryDependencies <+= (scalaVersion)("org.scala-lang" % "scala-reflect" % _))
+      libraryDependencies <+= (scalaVersion)("org.scala-lang.virtualized" % "scala-reflect" % _))
   )
 
   lazy val core: Project = Project(
